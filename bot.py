@@ -29,7 +29,7 @@ EXCEL_FILE = "work_orders.xlsx"  # 📂 Файл с таблицами
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
     user_photos[message.chat.id] = []  # Очищаем список фото
-    await message.reply("Привет! Отправь мне два скриншота, и я обработаю их.")
+    await message.reply("Здарова заебал! Отправь 1 скрин с WO, 2 с Notes.")
 
 # ✅ Обработчик фото
 @dp.message_handler(content_types=ContentType.PHOTO)
@@ -79,7 +79,7 @@ async def process_images(message):
     update_excel(wo_number, extracted_data["sa_number"], extracted_data["time_start"], extracted_data["time_end"], total_time)
 
     # 📤 Отправляем пользователю PDF
-    await bot.send_document(user_id, InputFile(pdf_filename), caption="Готово! Вот твой PDF.")
+    await bot.send_document(user_id, InputFile(pdf_filename), caption="Заебись! Вот твой PDF.")
 
     # 📤 Отправляем обновленный Excel-файл
     if os.path.exists(EXCEL_FILE):
