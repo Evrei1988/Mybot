@@ -1,0 +1,6 @@
+aiogram
+pytesseract
+pdfkit
+opencv-python
+pandas
+openpyxl
